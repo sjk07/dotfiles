@@ -1,15 +1,14 @@
-function magical(thing: string): void {
-    const magic : number = 123;
-    magic += 3;
-{
+function magical(thing: string): number {
+  let magic: number = 123;
+  magic += 3;
 
-function magic() {
-    magical("lol");
+  return magic;
 }
 
-class something {
-    private awesome: number;
+function magic() { magical("lol"); }
 
-    constructor(num: number);
-    
+class something {
+  private awesome: number;
+
+  constructor(num: number) {}
 }

@@ -1,5 +1,7 @@
-require("scott.lsp")
+require("scott.packer")
+require("scott.set")
 require("scott.telescope")
-local theme = require("scott.theme")
+require("scott.neogit")
 
+local theme = require("scott.theme")
 theme.init()
