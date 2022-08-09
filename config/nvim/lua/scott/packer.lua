@@ -15,7 +15,13 @@ return require('packer').startup(function(use)
   
   -- theme
   use 'rmehri01/onenord.nvim'
-  
+ 
+  -- statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   -- highlighting
   use("nvim-treesitter/nvim-treesitter", {
     run = ":TSUpdate"
@@ -55,4 +61,8 @@ return require('packer').startup(function(use)
 
   -- formatting 
   use 'sbdchd/neoformat'
+
+  -- notes
+  use("mickael-menu/zk-nvim")
+
 end)
