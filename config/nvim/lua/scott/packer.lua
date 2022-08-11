@@ -12,10 +12,10 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
-  
+
   -- theme
   use 'rmehri01/onenord.nvim'
- 
+
   -- statusline
   use {
     'nvim-lualine/lualine.nvim',
@@ -32,13 +32,24 @@ return require('packer').startup(function(use)
   -- lsp
   use 'hrsh7th/nvim-cmp'
   use 'onsails/lspkind-nvim'
-  use 'williamboman/nvim-lsp-installer'
+  use {
+      'williamboman/mason.nvim',
+      requires = {
+        'williamboman/mason-lspconfig.nvim'
+      }
+  }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'glepnir/lspsaga.nvim'
+  use 'glepnir/lsp.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
+  use({
+    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
 
   -- git
   use 'TimUntersberger/neogit'
@@ -63,6 +74,17 @@ return require('packer').startup(function(use)
   use 'sbdchd/neoformat'
 
   -- notes
-  use("mickael-menu/zk-nvim")
+  use('mickael-menu/zk-nvim')
+
+  -- life
+  use({
+    'kylechui/nvim-surround',
+    config = function()
+        require("nvim-surround").setup({})
+    end
+  })
+
+  -- debugging
+  use 'mfussenegger/nvim-dap'
 
 end)

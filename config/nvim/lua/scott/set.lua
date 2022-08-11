@@ -24,4 +24,8 @@ vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.shortmess:append("c")
 
+vim.diagnostic.config({
+  virtual_text = false,
+})
+
 vim.g.mapleader = " "

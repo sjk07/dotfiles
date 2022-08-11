@@ -70,12 +70,21 @@ local function config(_config)
 	}, _config or {})
 end
 
-require("nvim-lsp-installer").setup({
-    ensure_installed = { "gopls", "tsserver" }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { "gopls", "tsserver", "sumneko_lua", "rust_analyzer" }
 })
 
+-- typescript
 require("lspconfig").tsserver.setup(config())
 
+-- lua
+require("lspconfig").sumneko_lua.setup(config())
+
+-- rust 
+require("lspconfig").rust_analyzer.setup(config())
+
+-- golang
 require("lspconfig").gopls.setup(config({
 	cmd = { "gopls", "serve" },
 	settings = {
