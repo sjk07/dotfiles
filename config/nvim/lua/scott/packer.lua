@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
     run = ":TSUpdate"
   })
   use("nvim-treesitter/playground")
-  use("romgrk/nvim-treesitter-context")
+  use("nvim-treesitter/nvim-treesitter-context")
 
   -- lsp
   use 'hrsh7th/nvim-cmp'
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
   }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'glepnir/lsp.nvim'
+  use 'glepnir/lspsaga.nvim'
   use 'simrat39/symbols-outline.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'

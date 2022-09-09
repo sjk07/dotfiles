@@ -4,6 +4,8 @@ local inoremap = Remap.inoremap
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 
 -- Setup nvim-cmp.
 local cmp = require("cmp")
@@ -18,20 +20,14 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
-			-- vim.fn["vsnip#anonymous"](args.body)
-
 			-- For `luasnip` user.
 			require("luasnip").lsp_expand(args.body)
-
-			-- For `ultisnips` user.
-			-- vim.fn["UltiSnips#Anon"](args.body)
 		end,
 	},
 	mapping = {
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-Space>"] = cmp.mapping.confirm({select = true}),
         ["<Tab>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
         ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
 	},
@@ -72,14 +68,23 @@ end
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "gopls", "tsserver", "sumneko_lua", "rust_analyzer" }
+    ensure_installed =
+    { "gopls", "tsserver", "sumneko_lua", "rust_analyzer", "bashls", "shellcheck" }
 })
 
 -- typescript
 require("lspconfig").tsserver.setup(config())
 
 -- lua
-require("lspconfig").sumneko_lua.setup(config())
+require("lspconfig").sumneko_lua.setup(config({
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}))
 
 -- rust 
 require("lspconfig").rust_analyzer.setup(config())
@@ -96,6 +101,8 @@ require("lspconfig").gopls.setup(config({
 		},
 	},
 }))
+
+require("lspconfig").bashls.setup(config())
 
 local opts = {
 	highlight_hovered_item = true,
