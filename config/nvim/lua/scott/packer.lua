@@ -83,8 +83,22 @@ return require('packer').startup(function(use)
         require("nvim-surround").setup({})
     end
   })
+  use({
+    'windwp/nvim-autopairs',
+    confg = function ()
+        require("nvim-autopairs").setup({})
+    end
+  })
 
   -- debugging
   use 'mfussenegger/nvim-dap'
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim"
+    }
+  }
 
 end)
