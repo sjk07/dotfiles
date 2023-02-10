@@ -54,14 +54,14 @@ local function config(_config)
 		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
 			nnoremap("gd", function() vim.lsp.buf.definition() end)
-			nnoremap("K", function() vim.lsp.buf.hover() end)
-			nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
-			nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
+			--nnoremap("K", function() vim.lsp.buf.hover() end)
+			--nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
+			--nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
 			nnoremap("[d", function() vim.lsp.diagnostic.goto_next() end)
 			nnoremap("]d", function() vim.lsp.diagnostic.goto_prev() end)
-			nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
-			nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
-			nnoremap("<leader>vrn", function() vim.lsp.buf.rename() end)
+			--nnoremap("<leader>vca", function() vim.lsp.buf.code_action() end)
+			--nnoremap("<leader>vrr", function() vim.lsp.buf.references() end)
+			--nnoremap("<leader>vrn", function() vim.lsp.buf.rename() end)
 			inoremap("<C-h>", function() vim.lsp.buf.signature_help() end)
 		end,
 	}, _config or {})
@@ -74,7 +74,22 @@ require("mason-lspconfig").setup({
 })
 
 -- typescript
-require("lspconfig").tsserver.setup(config())
+require("lspconfig").tsserver.setup(config({
+  on_attach = on_attach,
+  root_dir = require("lspconfig").util.root_pattern("package.json"),
+  init_options = {
+    lint = true,
+  },
+}))
+
+-- deno
+require("lspconfig").denols.setup(config({
+  on_attach = on_attach,
+  root_dir = require("lspconfig").util.root_pattern("deno.jsonc"),
+  init_options = {
+    lint = true,
+  },
+}))
 
 -- lua
 require("lspconfig").sumneko_lua.setup(config({
