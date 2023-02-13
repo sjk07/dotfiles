@@ -70,7 +70,7 @@ end
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed =
-    { "gopls", "tsserver", "sumneko_lua", "rust_analyzer", "bashls" }
+    { "gopls", "tsserver", "rust_analyzer", "bashls" }
 })
 
 -- typescript
@@ -92,7 +92,7 @@ require("lspconfig").denols.setup(config({
 }))
 
 -- lua
-require("lspconfig").sumneko_lua.setup(config({
+require("lspconfig").lua_ls.setup(config({
     settings = {
         Lua = {
             diagnostics = {

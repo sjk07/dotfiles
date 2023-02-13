@@ -40,7 +40,10 @@ return require('packer').startup(function(use)
   }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'glepnir/lspsaga.nvim'
+  use ({
+      'glepnir/lspsaga.nvim',
+      requires = { {"nvim-tree/nvim-web-devicons"} }
+  })
   use 'simrat39/symbols-outline.nvim'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
@@ -90,15 +93,49 @@ return require('packer').startup(function(use)
     end
   })
 
+  use({
+    'nvim-tree/nvim-web-devicons',
+    config = function ()
+        require("nvim-web-devicons").setup({})
+    end
+  })
   -- debugging
   use 'mfussenegger/nvim-dap'
+
+  -- testing
   use {
     "nvim-neotest/neotest",
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim"
-    }
+      "antoinemadec/FixCursorHold.nvim",
+      "haydenmeade/neotest-jest",
+      "markemmons/neotest-deno",
+      "rouge8/neotest-rust",
+      "nvim-neotest/neotest-go"
+    },
+    config = function ()
+        require("neotest").setup({
+            adapters = {
+              require("neotest-jest"),
+              require("neotest-deno"),
+              require("neotest-rust"),
+              require("neotest-go")
+            },
+        })
+    end
   }
 
+  -- monorepo
+  use {
+    'Equilibris/nx.nvim',
+    requires = {
+        'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+        require("nx").setup {
+            nx_cmd_root = 'pnpm nx',
+        }
+    end
+  }
 end)

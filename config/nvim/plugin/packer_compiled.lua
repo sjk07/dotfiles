@@ -146,9 +146,30 @@ _G.packer_plugins = {
     url = "https://github.com/TimUntersberger/neogit"
   },
   neotest = {
+    config = { "\27LJ\2\nÅ\1\0\0\a\0\t\1\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0004\3\5\0006\4\0\0'\6\3\0B\4\2\2>\4\1\0036\4\0\0'\6\4\0B\4\2\2>\4\2\0036\4\0\0'\6\5\0B\4\2\2>\4\3\0036\4\0\0'\6\6\0B\4\2\0?\4\0\0=\3\b\2B\0\2\1K\0\1\0\radapters\1\0\0\15neotest-go\17neotest-rust\17neotest-deno\17neotest-jest\nsetup\fneotest\frequire\t€€À™\4\0" },
     loaded = true,
     path = "/home/scott/.local/share/nvim/site/pack/packer/start/neotest",
     url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-deno"] = {
+    loaded = true,
+    path = "/home/scott/.local/share/nvim/site/pack/packer/start/neotest-deno",
+    url = "https://github.com/markemmons/neotest-deno"
+  },
+  ["neotest-go"] = {
+    loaded = true,
+    path = "/home/scott/.local/share/nvim/site/pack/packer/start/neotest-go",
+    url = "https://github.com/nvim-neotest/neotest-go"
+  },
+  ["neotest-jest"] = {
+    loaded = true,
+    path = "/home/scott/.local/share/nvim/site/pack/packer/start/neotest-jest",
+    url = "https://github.com/haydenmeade/neotest-jest"
+  },
+  ["neotest-rust"] = {
+    loaded = true,
+    path = "/home/scott/.local/share/nvim/site/pack/packer/start/neotest-rust",
+    url = "https://github.com/rouge8/neotest-rust"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -191,6 +212,12 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/scott/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
+  ["nx.nvim"] = {
+    config = { "\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16nx_cmd_root\fpnpm nx\nsetup\anx\frequire\0" },
+    loaded = true,
+    path = "/home/scott/.local/share/nvim/site/pack/packer/start/nx.nvim",
+    url = "https://github.com/Equilibris/nx.nvim"
   },
   ["octo.nvim"] = {
     config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0" },
@@ -259,6 +286,14 @@ time([[Config for nvim-surround]], false)
 time([[Config for lsp_lines.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14lsp_lines\frequire\0", "config", "lsp_lines.nvim")
 time([[Config for lsp_lines.nvim]], false)
+-- Config for: neotest
+time([[Config for neotest]], true)
+try_loadstring("\27LJ\2\nÅ\1\0\0\a\0\t\1\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0004\3\5\0006\4\0\0'\6\3\0B\4\2\2>\4\1\0036\4\0\0'\6\4\0B\4\2\2>\4\2\0036\4\0\0'\6\5\0B\4\2\2>\4\3\0036\4\0\0'\6\6\0B\4\2\0?\4\0\0=\3\b\2B\0\2\1K\0\1\0\radapters\1\0\0\15neotest-go\17neotest-rust\17neotest-deno\17neotest-jest\nsetup\fneotest\frequire\t€€À™\4\0", "config", "neotest")
+time([[Config for neotest]], false)
+-- Config for: nx.nvim
+time([[Config for nx.nvim]], true)
+try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16nx_cmd_root\fpnpm nx\nsetup\anx\frequire\0", "config", "nx.nvim")
+time([[Config for nx.nvim]], false)
 -- Config for: octo.nvim
 time([[Config for octo.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
