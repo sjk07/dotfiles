@@ -54,7 +54,7 @@ local function config(_config)
 		capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 		on_attach = function()
 			nnoremap("gd", function() vim.lsp.buf.definition() end)
-			--nnoremap("K", function() vim.lsp.buf.hover() end)
+			nnoremap("K", function() vim.lsp.buf.hover() end)
 			--nnoremap("<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
 			--nnoremap("<leader>vd", function() vim.diagnostic.open_float() end)
 			nnoremap("[d", function() vim.lsp.diagnostic.goto_next() end)
@@ -70,16 +70,25 @@ end
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed =
-    { "gopls", "tsserver", "rust_analyzer", "bashls" }
+    { "gopls", "ts_ls", "rust_analyzer", "bashls", "yamlls" }
 })
 
 -- typescript
-require("lspconfig").tsserver.setup(config({
+require("lspconfig").ts_ls.setup(config({
   on_attach = on_attach,
   root_dir = require("lspconfig").util.root_pattern("package.json"),
   init_options = {
     lint = true,
   },
+}))
+
+-- eslint
+require("lspconfig").eslint.setup(config())
+
+-- graphql
+require("lspconfig").graphql.setup(config({
+    on_attach = on_attach,
+    root_dir = require("lspconfig").util.root_pattern(".graphqlconfig", ".graphqlrc", "package.json")
 }))
 
 -- deno
@@ -120,10 +129,24 @@ require("lspconfig").gopls.setup(config({
 
 require("lspconfig").bashls.setup(config())
 
+require("lspconfig").yamlls.setup(config({
+    settings = {
+        yaml = {
+          keyOrdering = false
+        }
+    }
+}))
+
+
+require('lint').linters_by_ft = {
+  yaml = {'actionlint',}
+}
+
+
 local opts = {
 	highlight_hovered_item = true,
 	show_guides = true,
 }
 
 require("symbols-outline").setup(opts)
-   
+

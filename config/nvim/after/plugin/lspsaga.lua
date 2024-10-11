@@ -4,10 +4,9 @@ local Remap = require("scott.keymap")
 local nnoremap = Remap.nnoremap
 
 saga.setup({
---    symbol_in_winbar = {
---        in_custom = true
---    },
---    code_action_icon = "",
+  code_action = {
+    extend_gitsigns = false
+  }
 })
 
 -- mappings
