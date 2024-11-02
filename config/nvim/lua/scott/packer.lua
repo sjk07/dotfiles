@@ -150,7 +150,12 @@ return require('packer').startup(function(use)
       })
       end
     })
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
+    use { "rcarriga/nvim-dap-ui",
+        requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+        config = function()
+            require("dapui").setup()
+        end
+    }
 
   -- testing
   use {
@@ -193,15 +198,15 @@ return require('packer').startup(function(use)
   }
 
   -- monorepo
-  use {
-    'Equilibris/nx.nvim',
-    requires = {
-        'nvim-telescope/telescope.nvim',
-    },
-    config = function()
-        require("nx").setup {
-            nx_cmd_root = 'pnpm nx'
-        }
-    end
-  }
+  -- use {
+  --  'Equilibris/nx.nvim',
+  --   requires = {
+  --      'nvim-telescope/telescope.nvim',
+  -- },
+  -- config = function()
+  --      require("nx").setup {
+  --          nx_cmd_root = 'pnpm nx'
+  --      }
+  --  end
+  -- }
 end)

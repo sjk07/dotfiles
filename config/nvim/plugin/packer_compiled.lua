@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/scott/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?/init.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/scott/.cache/nvim/packer_hererocks/2.1.1716656478/lib/lua/5.1/?.so"
+local package_path_str = "/home/scott/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1727870382/share/lua/5.1/?/init.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?.lua;/home/scott/.cache/nvim/packer_hererocks/2.1.1727870382/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/scott/.cache/nvim/packer_hererocks/2.1.1727870382/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -192,12 +192,13 @@ _G.packer_plugins = {
     url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-go"] = {
-    config = { "\27LJ\2\n¡\2\0\0\5\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0004\4\0\0=\4\a\3=\3\b\2B\0\2\1K\0\1\0\ndelve\targs\1\0\a\tport\f${port}\27initialize_timeout_sec\3\20\tpath\bdlv\targs\0\rdetached\2\16build_flags\5\bcwd\0\23dap_configurations\1\0\2\23dap_configurations\0\ndelve\0\1\0\4\ttype\ago\tmode\vremote\tname\18Attach remote\frequest\vattach\nsetup\vdap-go\frequire\0" },
+    config = { "\27LJ\2\n¡\2\0\0\5\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0004\4\0\0=\4\a\3=\3\b\2B\0\2\1K\0\1\0\ndelve\targs\1\0\a\16build_flags\5\tpath\bdlv\tport\f${port}\27initialize_timeout_sec\3\20\targs\0\bcwd\0\rdetached\2\23dap_configurations\1\0\2\23dap_configurations\0\ndelve\0\1\0\4\ttype\ago\tmode\vremote\frequest\vattach\tname\18Attach remote\nsetup\vdap-go\frequire\0" },
     loaded = true,
     path = "/home/scott/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
     url = "https://github.com/leoluz/nvim-dap-go"
   },
   ["nvim-dap-ui"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0" },
     loaded = true,
     path = "/home/scott/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
@@ -238,12 +239,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/scott/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
-  },
-  ["nx.nvim"] = {
-    config = { "\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16nx_cmd_root\fpnpm nx\nsetup\anx\frequire\0" },
-    loaded = true,
-    path = "/home/scott/.local/share/nvim/site/pack/packer/start/nx.nvim",
-    url = "https://github.com/Equilibris/nx.nvim"
   },
   ["octo.nvim"] = {
     config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0" },
@@ -304,34 +299,34 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: octo.nvim
-time([[Config for octo.nvim]], true)
-try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
-time([[Config for octo.nvim]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
--- Config for: nx.nvim
-time([[Config for nx.nvim]], true)
-try_loadstring("\27LJ\2\nK\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16nx_cmd_root\fpnpm nx\nsetup\anx\frequire\0", "config", "nx.nvim")
-time([[Config for nx.nvim]], false)
--- Config for: neotest
-time([[Config for neotest]], true)
-try_loadstring("\27LJ\2\n|\0\1\6\0\b\0\0229\1\0\0\18\3\1\0009\1\1\1'\4\2\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\4\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\5\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\6\0'\5\a\0B\1\4\2L\1\2\0\5\t^%s+\b%s+\6\t\6 \6\n\tgsub\fmessage©\3\1\0\t\0\22\1,6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0026\1\0\0009\1\4\0019\1\5\0015\3\t\0005\4\a\0003\5\6\0=\5\b\4=\4\n\3\18\4\0\0B\1\3\0016\1\v\0'\3\3\0B\1\2\0029\1\f\0015\3\20\0004\4\5\0006\5\v\0'\a\r\0B\5\2\2>\5\1\0046\5\v\0'\a\14\0B\5\2\2>\5\2\0046\5\v\0'\a\15\0B\5\2\2>\5\3\0046\5\v\0'\a\16\0B\5\2\0025\a\18\0005\b\17\0=\b\19\aB\5\2\0?\5\0\0=\4\21\3B\1\2\1K\0\1\0\radapters\1\0\1\radapters\0\17experimental\1\0\1\17experimental\0\1\0\1\15test_table\2\15neotest-go\17neotest-rust\17neotest-deno\17neotest-jest\nsetup\frequire\17virtual_text\1\0\1\17virtual_text\0\vformat\1\0\1\vformat\0\0\vconfig\15diagnostic\fneotest\26nvim_create_namespace\bapi\bvim\t€€À™\4\0", "config", "neotest")
-time([[Config for neotest]], false)
+-- Config for: nvim-dap-go
+time([[Config for nvim-dap-go]], true)
+try_loadstring("\27LJ\2\n¡\2\0\0\5\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0004\4\0\0=\4\a\3=\3\b\2B\0\2\1K\0\1\0\ndelve\targs\1\0\a\16build_flags\5\tpath\bdlv\tport\f${port}\27initialize_timeout_sec\3\20\targs\0\bcwd\0\rdetached\2\23dap_configurations\1\0\2\23dap_configurations\0\ndelve\0\1\0\4\ttype\ago\tmode\vremote\frequest\vattach\tname\18Attach remote\nsetup\vdap-go\frequire\0", "config", "nvim-dap-go")
+time([[Config for nvim-dap-go]], false)
 -- Config for: nvim-web-devicons
 time([[Config for nvim-web-devicons]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
+-- Config for: neotest
+time([[Config for neotest]], true)
+try_loadstring("\27LJ\2\n|\0\1\6\0\b\0\0229\1\0\0\18\3\1\0009\1\1\1'\4\2\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\4\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\5\0'\5\3\0B\1\4\2\18\3\1\0009\1\1\1'\4\6\0'\5\a\0B\1\4\2L\1\2\0\5\t^%s+\b%s+\6\t\6 \6\n\tgsub\fmessage©\3\1\0\t\0\22\1,6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\0026\1\0\0009\1\4\0019\1\5\0015\3\t\0005\4\a\0003\5\6\0=\5\b\4=\4\n\3\18\4\0\0B\1\3\0016\1\v\0'\3\3\0B\1\2\0029\1\f\0015\3\20\0004\4\5\0006\5\v\0'\a\r\0B\5\2\2>\5\1\0046\5\v\0'\a\14\0B\5\2\2>\5\2\0046\5\v\0'\a\15\0B\5\2\2>\5\3\0046\5\v\0'\a\16\0B\5\2\0025\a\18\0005\b\17\0=\b\19\aB\5\2\0?\5\0\0=\4\21\3B\1\2\1K\0\1\0\radapters\1\0\1\radapters\0\17experimental\1\0\1\17experimental\0\1\0\1\15test_table\2\15neotest-go\17neotest-rust\17neotest-deno\17neotest-jest\nsetup\frequire\17virtual_text\1\0\1\17virtual_text\0\vformat\1\0\1\vformat\0\0\vconfig\15diagnostic\fneotest\26nvim_create_namespace\bapi\bvim\t€€À™\4\0", "config", "neotest")
+time([[Config for neotest]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
+time([[Config for nvim-dap-ui]], false)
+-- Config for: octo.nvim
+time([[Config for octo.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tocto\frequire\0", "config", "octo.nvim")
+time([[Config for octo.nvim]], false)
 -- Config for: lsp_lines.nvim
 time([[Config for lsp_lines.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14lsp_lines\frequire\0", "config", "lsp_lines.nvim")
 time([[Config for lsp_lines.nvim]], false)
--- Config for: nvim-dap-go
-time([[Config for nvim-dap-go]], true)
-try_loadstring("\27LJ\2\n¡\2\0\0\5\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0025\3\6\0004\4\0\0=\4\a\3=\3\b\2B\0\2\1K\0\1\0\ndelve\targs\1\0\a\tport\f${port}\27initialize_timeout_sec\3\20\tpath\bdlv\targs\0\rdetached\2\16build_flags\5\bcwd\0\23dap_configurations\1\0\2\23dap_configurations\0\ndelve\0\1\0\4\ttype\ago\tmode\vremote\tname\18Attach remote\frequest\vattach\nsetup\vdap-go\frequire\0", "config", "nvim-dap-go")
-time([[Config for nvim-dap-go]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
