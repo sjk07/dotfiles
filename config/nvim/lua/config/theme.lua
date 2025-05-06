@@ -32,10 +32,7 @@ _M.colors = {
     grey19 = "#020203",
 }
 
-_M.init = function()
-    local isExistNord, onenord = pcall(require, "onenord")
-    if isExistNord then
-        onenord.setup {
+        require("onenord").setup {
             borders = true,
             fade_nc = false,
             styles = {
@@ -87,8 +84,6 @@ _M.init = function()
                 LspFloatWinBorder = { fg = _M.colors.grey14 },
             },
         }
-    end
-end
 
 return _M
 

@@ -1,13 +1,12 @@
-
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 vim.opt.nu = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.hidden = true
 vim.opt.errorbells = false
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
@@ -26,6 +25,7 @@ vim.opt.shortmess:append("c")
 
 vim.diagnostic.config({
   virtual_text = false,
+  virtual_lines = true
 })
 
 vim.g.mapleader = " "
