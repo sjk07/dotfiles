@@ -1,0 +1,152 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "local_horse": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local Horse Server",
+      "options": {
+        "baseURL": "http://192.168.1.50:30000/v1",
+        "apiKey": "dummy-key",
+        "timeout": 300000
+      },
+      "models": {
+        "coder-quick": {
+          "name": "Qwen 3.5 122B (Quick)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 524288,
+            "output": 8192
+          },
+          "options": {
+            "thinking": {
+              "type": "disabled",
+              "budgetTokens": 0
+            },
+            "temperature": 0.5,
+            "topP": 0.8,
+            "topK": 20,
+            "presencePenalty": 0.5,
+            "frequencyPenalty": 0.3
+          }
+        },
+        "coder-standard": {
+          "name": "Qwen 3.5 122B (Standard)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 524288,
+            "output": 32768
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 4096
+            },
+            "temperature": 1.0,
+            "topP": 0.95,
+            "topK": 20,
+            "presencePenalty": 1.5,
+            "frequencyPenalty": 0.5
+          }
+        },
+        "coder-deep": {
+          "name": "Qwen 3.5 122B (Deep)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 524288,
+            "output": 81920
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 16384
+            },
+            "temperature": 1.2,
+            "topP": 0.95,
+            "topK": 20,
+            "presencePenalty": 2.0,
+            "frequencyPenalty": 0.7
+          }
+        },
+        "coder-max": {
+          "name": "Qwen 3.5 122B (Max)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 524288,
+            "output": 131072
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 32768
+            },
+            "temperature": 1.0,
+            "topP": 0.95,
+            "topK": 40,
+            "presencePenalty": 2.0,
+            "frequencyPenalty": 0.8
+          }
+        },
+        "coder-ultra": {
+          "name": "Qwen 3.5 122B (Ultra)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 524288,
+            "output": 262144
+          },
+          "options": {
+            "thinking": {
+              "type": "enabled",
+              "budgetTokens": 65536
+            },
+            "temperature": 0.9,
+            "topP": 0.95,
+            "topK": 40,
+            "presencePenalty": 2.0,
+            "frequencyPenalty": 0.8
+          }
+        }
+      }
+    }
+  },
+  "agent": {
+    "quick": {
+      "model": "local_horse/coder-quick",
+      "fallback_models": ["coder-standard"],
+      "timeout": 60000
+    },
+    "plan": {
+      "model": "local_horse/coder-standard",
+      "fallback_models": ["coder-deep", "coder-quick"],
+      "timeout": 120000
+    },
+    "architect": {
+      "model": "local_horse/coder-deep",
+      "fallback_models": ["coder-max", "coder-standard"],
+      "timeout": 180000
+    },
+    "research": {
+      "model": "local_horse/coder-max",
+      "fallback_models": ["coder-deep", "coder-standard"],
+      "timeout": 300000
+    }
+  },
+  "model": "local_horse/coder-standard",
+  "autoupdate": true,
+  "instructions": [],
+  "plugin": ["oh-my-opencode@latest"]
+}

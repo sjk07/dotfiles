@@ -1,0 +1,30 @@
+{
+  "agents": {
+    "prometheus": { "model": "local_horse/coder-standard" },
+    "metis": { "model": "local_horse/coder-deep" },
+    "momus": { "model": "local_horse/coder-deep" },
+    "hephaestus": { "model": "local_horse/coder-deep" },
+    "atlas": { "model": "local_horse/coder-standard" },
+    "oracle": { "model": "local_horse/coder-max" },
+    "librarian": { "model": "local_horse/coder-standard" },
+    "explore": { "model": "local_horse/coder-quick" },
+    "multimodal-looker": { "model": "local_horse/coder-standard" },
+    "sisyphus": { "model": "local_horse/coder-deep" },
+    "sisyphus-junior": { "model": "local_horse/coder-quick" }
+  },
+  "categories": {
+    "visual-engineering": { "model": "local_horse/coder-standard" },
+    "ultrabrain": { "model": "local_horse/coder-ultra" },
+    "deep": { "model": "local_horse/coder-deep" },
+    "artistry": { "model": "local_horse/coder-standard" },
+    "quick": { "model": "local_horse/coder-quick" },
+    "unspecified-low": { "model": "local_horse/coder-quick" },
+    "unspecified-high": { "model": "local_horse/coder-max" },
+    "writing": { "model": "local_horse/coder-standard" }
+  },
+  "background_task": {
+    "defaultConcurrency": 32,
+    "providerConcurrency": {},
+    "modelConcurrency": {}
+  }
+}
